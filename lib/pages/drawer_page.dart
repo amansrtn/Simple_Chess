@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:integrate/pages/home_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -11,8 +13,8 @@ class MyDrawer extends StatelessWidget {
         decoration: const BoxDecoration(color: Colors.deepPurple),
         child: ListView(
           padding: EdgeInsets.zero,
-          children: const [
-            DrawerHeader(
+          children: [
+            const DrawerHeader(
                 padding: EdgeInsets.zero,
                 child: UserAccountsDrawerHeader(
                     margin: EdgeInsets.zero,
@@ -34,14 +36,18 @@ class MyDrawer extends StatelessWidget {
                         backgroundImage: NetworkImage(
                             "https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg")))),
             Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: ListTile(
-                    leading: Icon(
+                    onTap: () {
+                      const Home();
+                    },
+                    leading: const Icon(
                       CupertinoIcons.home,
                       color: Colors.white,
                       size: 45,
                     ),
-                    title: Padding(
+                    title: const Padding(
                         padding: EdgeInsets.all(10.0),
                         child: Text(
                           "Home",
@@ -50,7 +56,7 @@ class MyDrawer extends StatelessWidget {
                               fontSize: 18,
                               color: Colors.white),
                         )))),
-            Padding(
+            const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: ListTile(
                     leading: Icon(
@@ -67,7 +73,7 @@ class MyDrawer extends StatelessWidget {
                               fontSize: 18,
                               color: Colors.white),
                         )))),
-            Padding(
+            const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                 child: ListTile(
                     leading: Icon(
@@ -85,14 +91,23 @@ class MyDrawer extends StatelessWidget {
                               color: Colors.white),
                         )))),
             Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: ListTile(
-                    leading: Icon(
+                    onTap: () {
+                      // ignore: unused_local_variable
+                      final Uri emailLaunchUri = Uri(
+                        scheme: 'mailto',
+                        path: 'aman18may18@gmail.com',
+                      );
+                      launchUrl(emailLaunchUri);
+                    },
+                    leading: const Icon(
                       CupertinoIcons.mail,
                       color: Colors.white,
                       size: 45,
                     ),
-                    title: Padding(
+                    title: const Padding(
                         padding: EdgeInsets.all(10.0),
                         child: Text(
                           "Contact Us",

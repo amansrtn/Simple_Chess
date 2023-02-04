@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
         title: const Text(
           "Integrate",
           style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 26),
         ),
         centerTitle: true,
       ),
