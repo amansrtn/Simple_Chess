@@ -33,7 +33,8 @@ class Mytry extends StatelessWidget {
             )),
         debugShowCheckedModeBanner: false,
         home: const Home(),
-        initialRoute: MyRoutes.gamepage,
-        routes: {MyRoutes.gamepage: (context) => const Chess()});
+        routes: {
+          MyRoutes.gamepage: (context) => const Chess(),
+        });
   }
 }

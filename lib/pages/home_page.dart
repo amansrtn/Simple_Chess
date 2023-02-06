@@ -26,44 +26,48 @@ class _HomeState extends State<Home> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-          child: InkWell(
-              onTap: () async {
-                setState(() {
-                  istap = true;
-                });
-                await Future.delayed(const Duration(seconds: 1));
-                await Navigator.pushNamed(context, MyRoutes.gamepage);
-                setState(() {
-                  istap = false;
-                });
-              },
-              child: AnimatedContainer(
-                duration: const Duration(seconds: 1),
-                height: 70,
-                width: istap ? 70 : 200,
-                decoration: const BoxDecoration(
-                  // color: Color.fromARGB(255, 10, 40, 92),
-                  color: Colors.black,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(70),
-                  ),
-                ),
-                child: Center(
-                    child: istap
-                        ? const Icon(
-                            Icons.done,
-                            color: Colors.white,
-                          )
-                        : const Text(
-                            "PLAY NOW",
-                            style: TextStyle(
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/image/home_image.jpg"),
+                fit: BoxFit.cover)),
+        child: Center(
+            child: InkWell(
+                onTap: () async {
+                  setState(() {
+                    istap = true;
+                  });
+                  await Future.delayed(const Duration(seconds: 1));
+                  await Navigator.pushNamed(context, MyRoutes.gamepage);
+                  setState(() {
+                    istap = false;
+                  });
+                },
+                child: AnimatedContainer(
+                    duration: const Duration(seconds: 1),
+                    height: 70,
+                    width: istap ? 70 : 200,
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(28, 0, 0, 0),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(70),
+                      ),
+                    ),
+                    child: Center(
+                        child: istap
+                            ? const Icon(
+                                Icons.done,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17),
-                          )),
-              ))),
-      drawer: const MyDrawer(),
+                              )
+                            : const Text(
+                                "PLAY NOW",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25),
+                              ))))),
+      ),
+      // drawer: const MyDrawer(),
     );
   }
 }
