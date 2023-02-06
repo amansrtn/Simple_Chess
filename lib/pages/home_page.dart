@@ -1,4 +1,6 @@
+// ignore_for_file: use_build_context_synchronously
 import "package:flutter/material.dart";
+import "package:integrate/pages/my_routes.dart";
 
 import "drawer_page.dart";
 
@@ -15,10 +17,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Colors.black),
         title: const Text(
-          "Integrate",
+          "CHESS",
           style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 26),
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 26),
         ),
         centerTitle: true,
       ),
@@ -28,20 +32,21 @@ class _HomeState extends State<Home> {
                 setState(() {
                   istap = true;
                 });
-                await Future.delayed(const Duration(milliseconds: 1800));
+                await Future.delayed(const Duration(seconds: 1));
+                await Navigator.pushNamed(context, MyRoutes.gamepage);
                 setState(() {
                   istap = false;
                 });
               },
               child: AnimatedContainer(
                 duration: const Duration(seconds: 1),
-                height: 60,
-                width: istap ? 60 : 200,
+                height: 70,
+                width: istap ? 70 : 200,
                 decoration: const BoxDecoration(
                   // color: Color.fromARGB(255, 10, 40, 92),
-                  color: Color.fromARGB(255, 58, 163, 62),
+                  color: Colors.black,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(60),
+                    Radius.circular(70),
                   ),
                 ),
                 child: Center(
@@ -51,7 +56,7 @@ class _HomeState extends State<Home> {
                             color: Colors.white,
                           )
                         : const Text(
-                            "PREDICT",
+                            "PLAY NOW",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
