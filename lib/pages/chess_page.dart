@@ -1,5 +1,5 @@
 // ignore_for_file: avoid_print
-
+import "package:assets_audio_player/assets_audio_player.dart";
 import "package:flutter/material.dart";
 import "package:flutter_chess_board/flutter_chess_board.dart";
 import "package:integrate/pages/my_routes.dart";
@@ -14,6 +14,7 @@ class Chess extends StatefulWidget {
 bool isend = false;
 bool p1 = false;
 bool p2 = false;
+String q = "check";
 int size = 0;
 int time = 0;
 
@@ -42,9 +43,20 @@ class _ChessState extends State<Chess> {
           time = 1;
         }
       }
-      print("contro ${controller.getMoveCount()}");
-      print("size $size");
-      print("time $time");
+      if (controller.isInCheck() ||
+          controller.isCheckMate() ||
+          controller.isDraw() ||
+          controller.isThreefoldRepetition() ||
+          controller.isStaleMate()) {
+        AssetsAudioPlayer.newPlayer().open(
+          Audio("assets/check.wav"),
+          playSpeed: 3,
+          autoStart: true,
+        );
+      } else {
+        AssetsAudioPlayer.newPlayer()
+            .open(Audio("assets/move.wav"), autoStart: true, playSpeed: 1.8);
+      }
     });
   }
 

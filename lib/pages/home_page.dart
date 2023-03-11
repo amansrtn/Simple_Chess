@@ -2,7 +2,7 @@
 import "package:flutter/material.dart";
 import "package:integrate/pages/my_routes.dart";
 
-import "drawer_page.dart";
+// import "drawer_page.dart";
 
 class Home extends StatefulWidget {
   const Home({super.key});
