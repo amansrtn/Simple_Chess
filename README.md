@@ -1,4 +1,6 @@
-# integrate
+It is a simple Chess Game for Multiplayer.
+The future Scope is to add Computer as a player and to add animation to give a real life look.
+
 
 A new Flutter project.
 
